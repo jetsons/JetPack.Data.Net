@@ -10,10 +10,10 @@
     <Version>1.0.0</Version>
     <PackageId>Jetsons.Jetpack.Data</PackageId>
     <Title>Jetsons.Jetpack.Data</Title>
-    <Description>The complete library that provides smart extension methods to read and write CSV, JSON, ZFO, MessagePack files. Optimized for the best performance.</Description>
+    <Description>The complete library that provides smart extension methods to read and write CSV, JSON, ZFO, MessagePack files. Optimized for performance.</Description>
     <Authors>The Jetsons</Authors>
-    <PackageLicenseUrl>https://github.com/jetsons/Jetpack.Data.Net/blob/master/LICENSE.TXT</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/jetsons/Jetpack.Data.Net</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/jetsons/JetPack.Data.Net/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jetsons/JetPack.Data.Net</PackageProjectUrl>
     <Copyright>MIT License</Copyright>
     <PackageTags>strings,math,numeric,file,csv</PackageTags>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Jetsons.Jetpack.Data.xml</DocumentationFile>
