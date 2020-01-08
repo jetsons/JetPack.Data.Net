@@ -13,6 +13,11 @@ This library depends on the following Nuget packages:
 
 ### Extensions
 
+Extension methods for Objects:
+
+- any.**EncodeJSON**
+- string.**DecodeJSON**
+
 Extension methods for file I/O performed using file path Strings:
 
 - string.**LoadJSON**

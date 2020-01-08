@@ -7,7 +7,7 @@
   
    <PropertyGroup>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <PackageId>Jetsons.JetPack.Data</PackageId>
     <Title>Jetsons.Jetpack.Data</Title>
     <Description>The complete library that provides smart extension methods to read and write CSV, JSON, ZFO, MessagePack files. Optimized for performance.</Description>
@@ -62,45 +62,6 @@
     <None Remove="ZFO\Formatters\PrimitiveArrayFormatter.tt" />
     <None Remove="ZFO\Formatters\PrimitiveFormatter.tt" />
     <None Remove="ZFO\Formatters\TupleFormatter.tt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="JSON\Formatters\PrimitiveFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="JSON\Formatters\TupleFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="JSON\Internal\UnsafeMemory.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="MsgPack\Formatters\ForceSizePrimitiveFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="MsgPack\Formatters\PrimitiveFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="MsgPack\Formatters\TupleFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="MsgPack\Formatters\ValueTupleFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="ZFO\Formatters\EnumFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="ZFO\Formatters\KeyTupleFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="ZFO\Formatters\PrimitiveArrayFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="ZFO\Formatters\PrimitiveFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
-    <Content Include="ZFO\Formatters\TupleFormatter.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
