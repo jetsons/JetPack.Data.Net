@@ -7,7 +7,7 @@
   
    <PropertyGroup>
     <VersionPrefix>1.0.0</VersionPrefix>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageId>Jetsons.JetPack.Data</PackageId>
     <Title>Jetsons.Jetpack.Data</Title>
     <Description>The complete library that provides smart extension methods to read and write CSV, JSON, ZFO, MessagePack files. Optimized for performance.</Description>
@@ -66,6 +66,7 @@
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.18.0" />
+    <PackageReference Include="sharpcompress" Version="0.24.0" />
     <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />

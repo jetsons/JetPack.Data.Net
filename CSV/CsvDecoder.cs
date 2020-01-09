@@ -9,42 +9,6 @@ namespace Jetsons.CSV {
 	/// Strongly-typed Fast CSV Decoder
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	public static class Csv {
-
-		/// <summary>
-		/// Parse a CSV file and convert it into a List of strongly typed Objects.
-		/// Never returns null.
-		/// If the first line is not headers, and you don't supply any columnProps, then the names of the columns are assumed.
-		/// </summary>
-		/// <param name="csv">CSV-formatted string</param>
-		/// <param name="headers">Read the first line as the column headers?</param>
-		/// <param name="columnProps">Provide the properties per column, if known</param>
-		/// <param name="delimiter">Uses the given delimiter</param>
-		/// <returns></returns>
-		public static CsvResults<T> Decode<T>(string csv, CsvHeaders headers, List<string> columnProps = null, char delimiter = ',') {
-
-			if (!csv.Exists()) {
-				return new CsvResults<T>();
-			}
-
-			csv = csv.Trim();
-
-			return new CsvDecoder<T>() {
-				Csv = csv,
-				Lines = csv.Lines(),
-				Header = headers,
-				ColumnProps = columnProps,
-				Delimiter = delimiter
-			}.DecodeString();
-		}
-
-
-	}
-
-	/// <summary>
-	/// Strongly-typed Fast CSV Decoder
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
 	public class CsvDecoder<T> {
 
 		// INPUTS

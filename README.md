@@ -22,13 +22,17 @@ Extension methods for Objects:
 
 - any.**EncodeJSON**
 - string.**DecodeJSON**
+- string.**DecodeCSV**
 
 Extension methods for file I/O performed using file path Strings:
 
 - string.**LoadJSON**
 - string.**LoadCSV**
 - string.**LoadZFO**
-- string.**LoadMsgPack**
+- string.**ArchiveFolder**
+- string.**ExtractArchive**
+- string.**ExtractFileFromArchive**
+- string.**GetFileFromArchive**
 
 Extension methods for Objects relating to file I/O:
 

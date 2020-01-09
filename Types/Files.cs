@@ -29,7 +29,7 @@ namespace Jetsons.JetPack
 			if (text == null) {
 				return new CsvResults<T> { Success = false };
 			}
-			return Csv.Decode<T>(text, headers, columnProps, delimiter);
+			return text.DecodeCSV<T>(headers, columnProps, delimiter);
 		}
 
 		/// <summary>
