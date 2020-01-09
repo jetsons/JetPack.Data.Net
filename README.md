@@ -15,6 +15,7 @@ This library depends on the following Nuget packages:
 
 - Jetsons.JetPack
 - Markdig
+- SharpCompress
 
 ### Extensions
 
