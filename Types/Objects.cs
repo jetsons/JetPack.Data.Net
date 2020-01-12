@@ -1,5 +1,6 @@
 ﻿using Jetsons.CSV;
 using Jetsons.JSON;
+using Jetsons.MsgPack;
 using SharpCompress.Common;
 using SharpCompress.Readers;
 using SharpCompress.Writers;
@@ -15,7 +16,8 @@ namespace Jetsons.JetPack {
 
 		/// <summary>
 		/// Serialize the given data into JSON representation and return the JSON string.
-		/// Optionally pretty prints the string with newlines and tabs to improve readabilitiy.
+		/// Optionally pretty prints the string with newlines and tabs to improve readability.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		public static string EncodeJSON<T>(this T data, bool prettyPrint = false) {
 			var json = JsonSerializer.Serialize<T>(data);
@@ -28,7 +30,16 @@ namespace Jetsons.JetPack {
 		}
 
 		/// <summary>
+		/// Serialize the given data into MessagePack representation and return the bytes.
+		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
+		/// </summary>
+		public static byte[] EncodeMsgPack<T>(this T data) {
+			return MessagePackSerializer.Serialize<T>(data);
+		}
+
+		/// <summary>
 		/// Deserialize the given JSON string into a strongly-typed data representation.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		public static T DecodeJSON<T>(this string json) {
 			var data = JsonSerializer.Deserialize<T>(json);
@@ -37,9 +48,47 @@ namespace Jetsons.JetPack {
 
 		/// <summary>
 		/// Deserialize the given JSON string into a dynamically-typed data representation.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		public static dynamic DecodeJSON(this string json) {
-			return JsonSerializer.Deserialize<dynamic>(json);
+			var data = JsonSerializer.Deserialize<dynamic>(json);
+			return data;
+		}
+
+		/// <summary>
+		/// Deserialize the given JSON data into a strongly-typed data representation.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
+		/// </summary>
+		public static T DecodeJSON<T>(this byte[] json) {
+			var data = JsonSerializer.Deserialize<T>(json);
+			return data;
+		}
+
+		/// <summary>
+		/// Deserialize the given JSON data into a dynamically-typed data representation.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
+		/// </summary>
+		public static dynamic DecodeJSON(this byte[] json) {
+			var data = JsonSerializer.Deserialize<dynamic>(json);
+			return data;
+		}
+
+		/// <summary>
+		/// Deserialize the given MessagePack data into a strongly-typed data representation.
+		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
+		/// </summary>
+		public static T DecodeMsgPack<T>(this byte[] json) {
+			var data = MessagePackSerializer.Deserialize<T>(json);
+			return data;
+		}
+		
+		/// <summary>
+		/// Deserialize the given MessagePack data into a dynamically-typed data representation.
+		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
+		/// </summary>
+		public static dynamic DecodeMsgPack(this byte[] json) {
+			var data = MessagePackSerializer.Deserialize<dynamic>(json);
+			return data;
 		}
 		
 		/// <summary>

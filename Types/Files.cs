@@ -6,7 +6,6 @@ using System.Text;
 using Jetsons.CSV;
 using Jetsons.JSON;
 using Jetsons.MsgPack;
-using Jetsons.ZFO;
 
 namespace Jetsons.JetPack
 {
@@ -75,40 +74,7 @@ namespace Jetsons.JetPack
 				return MessagePackSerializer.Deserialize<T>(file, resolver);
 			}
 		}
-
-		/// <summary>
-		/// Parse a ZFO file and convert it into an object.
-		/// Returns null if the file does not exist.
-		/// Use the dynamic type if you want weakly typed data.
-		/// Powered by the fastest .NET Serializer (ZeroFormatter).
-		/// </summary>
-		/// <param name="filePath">MessagePack file path</param>
-		/// <returns></returns>
-		public static T LoadZFO<T>(this string filePath) {
-			var file = filePath.LoadBytes();
-			if (file == null) {
-				return default(T);
-			}
-			return ZeroFormatterSerializer.Deserialize<T>(file);
-		}
-
-		/// <summary>
-		/// Saves the given objects as a serialized ZFO file.
-		/// Powered by the fastest .NET Serializer (ZeroFormatter).
-		/// </summary>
-		/// <param name="data">Objects</param>
-		/// <param name="fileName">File path, overwritten if it already exists</param>
-		/// <param name="createFolder">Create the parent folder?</param>
-		public static void SaveToFileZFO<T>(this T data, string fileName, bool createFolder = true) {
-			var bytes = ZeroFormatterSerializer.Serialize<T>(data);
-			if (bytes != null) {
-				bytes.SaveToFile(fileName, createFolder);
-			}
-			else {
-				fileName.DeleteFile();
-			}
-		}
-
+		
 		/// <summary>
 		/// Saves the given objects as a serialized MessagePack file.
 		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
