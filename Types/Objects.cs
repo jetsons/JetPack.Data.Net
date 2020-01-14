@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DynamicObject = System.Collections.Generic.Dictionary<string, object>;
+using DynamicList = System.Collections.Generic.List<object>;
 
 namespace Jetsons.JetPack {
 	public static class Objects {
@@ -38,7 +40,7 @@ namespace Jetsons.JetPack {
 		}
 
 		/// <summary>
-		/// Deserialize the given JSON string into a strongly-typed data representation.
+		/// Deserialize the given JSON string into a strongly-typed object.
 		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		public static T DecodeJSON<T>(this string json) {
@@ -47,16 +49,16 @@ namespace Jetsons.JetPack {
 		}
 
 		/// <summary>
-		/// Deserialize the given JSON string into a dynamically-typed data representation.
+		/// Deserialize the given JSON string into a dynamically-typed object.
 		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
-		public static dynamic DecodeJSON(this string json) {
-			var data = JsonSerializer.Deserialize<dynamic>(json);
+		public static DynamicObject DecodeJSON(this string json) {
+			var data = JsonSerializer.Deserialize<DynamicObject>(json);
 			return data;
 		}
 
 		/// <summary>
-		/// Deserialize the given JSON data into a strongly-typed data representation.
+		/// Deserialize the given JSON data into a strongly-typed object.
 		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		public static T DecodeJSON<T>(this byte[] json) {
@@ -65,16 +67,16 @@ namespace Jetsons.JetPack {
 		}
 
 		/// <summary>
-		/// Deserialize the given JSON data into a dynamically-typed data representation.
+		/// Deserialize the given JSON data into a dynamically-typed object.
 		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
-		public static dynamic DecodeJSON(this byte[] json) {
-			var data = JsonSerializer.Deserialize<dynamic>(json);
+		public static DynamicObject DecodeJSON(this byte[] json) {
+			var data = JsonSerializer.Deserialize<DynamicObject>(json);
 			return data;
 		}
 
 		/// <summary>
-		/// Deserialize the given MessagePack data into a strongly-typed data representation.
+		/// Deserialize the given MessagePack data into a strongly-typed object.
 		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
 		/// </summary>
 		public static T DecodeMsgPack<T>(this byte[] json) {
@@ -83,11 +85,11 @@ namespace Jetsons.JetPack {
 		}
 		
 		/// <summary>
-		/// Deserialize the given MessagePack data into a dynamically-typed data representation.
+		/// Deserialize the given MessagePack data into a dynamically-typed object.
 		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
 		/// </summary>
-		public static dynamic DecodeMsgPack(this byte[] json) {
-			var data = MessagePackSerializer.Deserialize<dynamic>(json);
+		public static DynamicObject DecodeMsgPack(this byte[] json) {
+			var data = MessagePackSerializer.Deserialize<DynamicObject>(json);
 			return data;
 		}
 		

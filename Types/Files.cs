@@ -6,6 +6,8 @@ using System.Text;
 using Jetsons.CSV;
 using Jetsons.JSON;
 using Jetsons.MsgPack;
+using DynamicObject = System.Collections.Generic.Dictionary<string, object>;
+using DynamicList = System.Collections.Generic.List<object>;
 
 namespace Jetsons.JetPack
 {
@@ -32,9 +34,8 @@ namespace Jetsons.JetPack
 		}
 
 		/// <summary>
-		/// Parse a JSON file and convert it into an object.
+		/// Parse a JSON file and convert it into an strongly-typed object.
 		/// Returns null if the file does not exist.
-		/// Use the dynamic type if you want weakly typed data.
 		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
 		/// </summary>
 		/// <param name="filePath">JSON file path</param>
@@ -54,9 +55,29 @@ namespace Jetsons.JetPack
 		}
 
 		/// <summary>
-		/// Parse a MessagePack file and convert it into an object.
+		/// Parse a JSON file and convert it into a dynamically-typed object.
 		/// Returns null if the file does not exist.
-		/// Use the dynamic type if you want weakly typed data.
+		/// Powered by the fastest Zero Allocation JSON Serializer (Utf8Json).
+		/// </summary>
+		/// <param name="filePath">JSON file path</param>
+		/// <param name="resolver">Settings to use while decoding</param>
+		/// <returns></returns>
+		public static DynamicObject LoadJSON(this string filePath, IJsonFormatterResolver resolver = null) {
+			var file = filePath.LoadBytes();
+			if (file == null) {
+				return null;
+			}
+			if (resolver == null) {
+				return JsonSerializer.Deserialize<DynamicObject>(file);
+			}
+			else {
+				return JsonSerializer.Deserialize<DynamicObject>(file, 0, resolver);
+			}
+		}
+
+		/// <summary>
+		/// Parse a MessagePack file and convert it into a strongly-typed object.
+		/// Returns null if the file does not exist.
 		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
 		/// </summary>
 		/// <param name="filePath">MessagePack file path</param>
@@ -72,6 +93,27 @@ namespace Jetsons.JetPack
 			}
 			else {
 				return MessagePackSerializer.Deserialize<T>(file, resolver);
+			}
+		}
+		
+		/// <summary>
+		/// Parse a MessagePack file and convert it into a dynamically-typed object.
+		/// Returns null if the file does not exist.
+		/// Powered by the fastest MessagePack Serializer (MessagePack-CSharp).
+		/// </summary>
+		/// <param name="filePath">MessagePack file path</param>
+		/// <param name="resolver">Settings to use while decoding</param>
+		/// <returns></returns>
+		public static DynamicObject LoadMsgPack(this string filePath, IFormatterResolver resolver = null) {
+			var file = filePath.LoadBytes();
+			if (file == null) {
+				return null;
+			}
+			if (resolver == null) {
+				return MessagePackSerializer.Deserialize<DynamicObject>(file);
+			}
+			else {
+				return MessagePackSerializer.Deserialize<DynamicObject>(file, resolver);
 			}
 		}
 		
