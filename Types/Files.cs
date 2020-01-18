@@ -125,7 +125,7 @@ namespace Jetsons.JetPack
 		/// <param name="fileName">File path, overwritten if it already exists</param>
 		/// <param name="createFolder">Create the parent folder?</param>
 		/// <param name="resolver">Settings to use while encoding</param>
-		public static void SaveToFileMsgPack<T>(this T data, string fileName, bool createFolder = true, IFormatterResolver resolver = null) {
+		public static void SaveToMsgPack<T>(this T data, string fileName, bool createFolder = true, IFormatterResolver resolver = null) {
 			var bytes = resolver == null ?
 				MessagePackSerializer.Serialize<T>(data) : MessagePackSerializer.Serialize<T>(data, resolver);
 			if (bytes != null) {
@@ -144,7 +144,7 @@ namespace Jetsons.JetPack
 		/// <param name="fileName">File path, overwritten if it already exists</param>
 		/// <param name="createFolder">Create the parent folder?</param>
 		/// <param name="resolver">Settings to use while encoding</param>
-		public static void SaveToFileJSON<T>(this T data, string fileName, bool createFolder = true, IJsonFormatterResolver resolver = null) {
+		public static void SaveToJSON<T>(this T data, string fileName, bool createFolder = true, IJsonFormatterResolver resolver = null) {
 			var bytes = resolver == null ?
 				JsonSerializer.Serialize<T>(data) : JsonSerializer.Serialize<T>(data, resolver);
 			if (bytes != null) {

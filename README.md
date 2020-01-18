@@ -7,7 +7,7 @@
 
 To use this simply grab our Nuget package `Jetsons.JetPack.Data` and add this to the top of your class:
 
-    using Jetsons.JetPack.Data;
+    using Jetsons.JetPack;
 	
 This statement unlocks all the extension methods below. Enjoy!
 
@@ -30,8 +30,8 @@ Extension methods for Data objects:
 
 Extension methods for file I/O performed using Data objects:
 
-- any.**SaveToFileJSON**
-- any.**SaveToFileMsgPack**
+- any.**SaveToJSON**
+- any.**SaveToMsgPack**
 
 Extension methods for file I/O performed using file path Strings:
 
