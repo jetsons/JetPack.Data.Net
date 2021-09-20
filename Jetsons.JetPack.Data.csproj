@@ -61,7 +61,7 @@
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.18.0" />
-    <PackageReference Include="sharpcompress" Version="0.24.0" />
+    <PackageReference Include="sharpcompress" Version="0.29.0" />
     <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
